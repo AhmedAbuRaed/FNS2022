@@ -30,7 +30,7 @@ model.num_beams = 4
 
 encoder_length = 2048
 decoder_length = 128
-batch_size = 16
+batch_size = 1
 
 
 # map data correctly
@@ -106,8 +106,6 @@ training_args = TrainingArguments(
     output_dir="./",
     per_device_train_batch_size=batch_size,
     per_device_eval_batch_size=batch_size,
-    predict_from_generate=True,
-    evaluate_during_training=True,
     do_train=True,
     do_eval=True,
     logging_steps=1000,
