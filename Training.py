@@ -30,7 +30,7 @@ model.num_beams = 4
 
 encoder_length = 2048
 decoder_length = 128
-batch_size = 1
+batch_size = 16
 
 
 # map data correctly
