@@ -1,4 +1,5 @@
 import nlp
+from datasets import load_dataset
 import logging
 from transformers import LongformerTokenizer, EncoderDecoderModel, Trainer, TrainingArguments
 
@@ -8,8 +9,8 @@ model = EncoderDecoderModel.from_encoder_decoder_pretrained("allenai/longformer-
 tokenizer = LongformerTokenizer.from_pretrained("allenai/longformer-base-4096")
 
 # load train and validation data
-train_dataset = nlp.load_dataset("cnn_dailymail", "3.0.0", split="train")
-val_dataset = nlp.load_dataset("cnn_dailymail", "3.0.0", split="validation[:5%]")
+train_dataset = load_dataset("ccdv/cnn_dailymail", "3.0.0", split="train")
+val_dataset = load_dataset("ccdv/cnn_dailymail", "3.0.0", split="validation[:5%]")
 
 # load rouge for validation
 rouge = nlp.load_metric("rouge", experiment_id=0)
